@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/video_engine.dir/src/main.cpp.o CMakeFiles/video_engine.dir/src/logger.cpp.o CMakeFiles/video_engine.dir/src/utils.cpp.o CMakeFiles/video_engine.dir/src/qos_controller.cpp.o CMakeFiles/video_engine.dir/src/xor_fec.cpp.o -o video_engine  -lgstvideo-1.0 -lgstrtp-1.0 -lgstapp-1.0 -lgstbase-1.0 -lgstreamer-1.0 -lgobject-2.0 -lglib-2.0 

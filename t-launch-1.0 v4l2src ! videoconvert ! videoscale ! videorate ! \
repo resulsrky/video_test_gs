@@ -1,0 +1,287 @@
+[33mFactory Details:[0m
+  [94mRank                     [0mprimary (256)[0m
+  [94mLong-name                [0mx264 H.264 Encoder[0m
+  [94mKlass                    [0mCodec/Encoder/Video[0m
+  [94mDescription              [0mlibx264-based H.264 video encoder[0m
+  [94mAuthor                   [0mJosef Zlomek <josef.zlomek@itonis.tv>, Mark Nauwelaerts <mnauw@users.sf.net>[0m
+  [94mDocumentation            [0m[0mhttps://gstreamer.freedesktop.org/documentation/x264/#x264enc-page[0m
+
+[33mPlugin Details[0m:
+  [94mName                     [0m[0mx264[0m
+  [94mDescription              [0m[0mlibx264-based H.264 encoder plugin[0m
+  [94mFilename                 [0m[0m/usr/lib/x86_64-linux-gnu/gstreamer-1.0/libgstx264.so[0m
+  [94mVersion                  [0m[0m1.24.1[0m
+  [94mLicense                  [0m[0mGPL[0m
+  [94mSource module            [0m[0mgst-plugins-ugly[0m
+  [94mDocumentation            [0m[0mhttps://gstreamer.freedesktop.org/documentation/x264/[0m
+  [94mSource release date      [0m[0m2024-03-21[0m
+  [94mBinary package           [0m[0mGStreamer Ugly Plugins (Ubuntu)[0m
+  [94mOrigin URL               [0m[0mhttps://launchpad.net/ubuntu/+source/gst-plugins-ugly1.0[0m
+
+[32mGObject[0m
+ [95m+----[0m[32mGInitiallyUnowned[0m
+       [95m+----[0m[32mGstObject[0m
+             [95m+----[0m[32mGstElement[0m
+                   [95m+----[0m[32mGstVideoEncoder[0m
+                         [95m+----[0m[32mGstX264Enc[0m
+
+[33merçeklenmiş Arayüzler[0m:
+  [32mGstPreset[0m
+
+[33mPad Templates[0m:
+  [94mSINK template[0m: [0m'sink'[0m
+    [94mAvailability[0m: [0mAlways[0m
+    [94mCapabilities[0m:
+      [33mvideo/x-raw[0m
+        [36m      framerate[0m: [94m[ 0/1, 2147483647/1 ][0m
+        [36m          width[0m: [94m[ 1, 2147483647 ][0m
+        [36m         height[0m: [94m[ 1, 2147483647 ][0m
+        [36m         format[0m: [94m{ (string)Y444, (string)Y42B, (string)I420, (string)YV12, (string)NV12, (string)GRAY8, (string)Y444_10LE, (string)I422_10LE, (string)I420_10LE }[0m
+  
+  [94mSRC template[0m: [0m'src'[0m
+    [94mAvailability[0m: [0mAlways[0m
+    [94mCapabilities[0m:
+      [33mvideo/x-h264[0m
+        [36m      framerate[0m: [94m[ 0/1, 2147483647/1 ][0m
+        [36m          width[0m: [94m[ 1, 2147483647 ][0m
+        [36m         height[0m: [94m[ 1, 2147483647 ][0m
+        [36m  stream-format[0m: [94m{ (string)avc, (string)byte-stream }[0m
+        [36m      alignment[0m: [94mau[0m
+        [36m        profile[0m: [94m{ (string)high-4:4:4, (string)high-4:2:2, (string)high-10, (string)high, (string)main, (string)baseline, (string)constrained-baseline, (string)high-4:4:4-intra, (string)high-4:2:2-intra, (string)high-10-intra }[0m
+
+[0mElement has no clocking capabilities.[0m
+[0mElement has no URI handling capabilities.[0m
+
+[33mPads:[0m
+  [94mSINK[0m: [0m'sink'[0m
+    [94mPad Template[0m: [0m'sink'[0m
+  [94mSRC[0m: [0m'src'[0m
+    [94mPad Template[0m: [0m'src'[0m
+
+[33mElement Properties[0m:
+
+  [94manalyse             [0m: [0mPartitions to consider[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mFlags "GstX264EncAnalyse"[0m [33mDefault[0m: [36m0x00000000, "(none)"[0m
+                           [33m(0x00000001)[0m: [36mi4x4            [0m - [0mi4x4[0m
+                           [33m(0x00000002)[0m: [36mi8x8            [0m - [0mi8x8[0m
+                           [33m(0x00000010)[0m: [36mp8x8            [0m - [0mp8x8[0m
+                           [33m(0x00000020)[0m: [36mp4x4            [0m - [0mp4x4[0m
+                           [33m(0x00000100)[0m: [36mb8x8            [0m - [0mb8x8[0m
+  
+  [94maud                 [0m: [0mUse AU (Access Unit) delimiter[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mBoolean[0m. [33mDefault[0m: [36mtrue[0m
+  
+  [94mb-adapt             [0m: [0mAutomatically decide how many B-frames to use[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mBoolean[0m. [33mDefault[0m: [36mtrue[0m
+  
+  [94mb-pyramid           [0m: [0mKeep some B-frames as references[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mBoolean[0m. [33mDefault[0m: [36mfalse[0m
+  
+  [94mbframes             [0m: [0mNumber of B-frames between I and P[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mUnsigned Integer[0m. [33mRange[0m: [36m0 - 16[0m [33mDefault[0m: [36m0[0m 
+  
+  [94mbitrate             [0m: [0mBitrate in kbit/sec[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m, [36mBOŞ, HAZIR, DURDURULMUŞ veya YÜRÜTÜLÜYOR durumlarına değiştirilebilir[0m
+                        [32mUnsigned Integer[0m. [33mRange[0m: [36m1 - 2048000[0m [33mDefault[0m: [36m2048[0m 
+  
+  [94mbyte-stream         [0m: [0mGenerate byte stream format of NALU[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mBoolean[0m. [33mDefault[0m: [36mfalse[0m
+  
+  [94mcabac               [0m: [0mEnable CABAC entropy coding[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mBoolean[0m. [33mDefault[0m: [36mtrue[0m
+  
+  [94mdct8x8              [0m: [0mAdaptive spatial transform size[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mBoolean[0m. [33mDefault[0m: [36mfalse[0m
+  
+  [94mframe-packing       [0m: [0mSet frame packing mode for Stereoscopic content[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mEnum "GstX264EncFramePacking"[0m [33mDefault[0m: [36m-1, "auto"[0m
+                           [33m(-1)[0m: [36mauto            [0m - [0mAutomatic (use incoming video information)[0m
+                           [33m(0)[0m: [36mcheckerboard    [0m - [0mcheckerboard - Left and Right pixels alternate in a checkerboard pattern[0m
+                           [33m(1)[0m: [36mcolumn-interleaved[0m - [0mcolumn interleaved - Alternating pixel columns represent Left and Right views[0m
+                           [33m(2)[0m: [36mrow-interleaved [0m - [0mrow interleaved - Alternating pixel rows represent Left and Right views[0m
+                           [33m(3)[0m: [36mside-by-side    [0m - [0mside by side - The left half of the frame contains the Left eye view, the right half the Right eye view[0m
+                           [33m(4)[0m: [36mtop-bottom      [0m - [0mtop bottom - L is on top, R on bottom[0m
+                           [33m(5)[0m: [36mframe-interleaved[0m - [0mframe interleaved - Each frame contains either Left or Right view alternately[0m
+  
+  [94minsert-vui          [0m: [0mInsert VUI NAL in stream[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mBoolean[0m. [33mDefault[0m: [36mtrue[0m
+  
+  [94minterlaced          [0m: [0mInterlaced material[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mBoolean[0m. [33mDefault[0m: [36mfalse[0m
+  
+  [94mintra-refresh       [0m: [0mUse Periodic Intra Refresh instead of IDR frames[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mBoolean[0m. [33mDefault[0m: [36mfalse[0m
+  
+  [94mip-factor           [0m: [0mQuantizer factor between I- and P-frames[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mFloat[0m. [33mRange[0m: [36m              0 -               2[0m [33mDefault[0m: [36m            1,4[0m 
+  
+  [94mkey-int-max         [0m: [0mMaximal distance between two key-frames (0 for automatic)[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mUnsigned Integer[0m. [33mRange[0m: [36m0 - 2147483647[0m [33mDefault[0m: [36m0[0m 
+  
+  [94mmb-tree             [0m: [0mMacroblock-Tree ratecontrol[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mBoolean[0m. [33mDefault[0m: [36mtrue[0m
+  
+  [94mme                  [0m: [0mInteger pixel motion estimation method[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mEnum "GstX264EncMe"[0m [33mDefault[0m: [36m1, "hex"[0m
+                           [33m(0)[0m: [36mdia             [0m - [0mdia[0m
+                           [33m(1)[0m: [36mhex             [0m - [0mhex[0m
+                           [33m(2)[0m: [36mumh             [0m - [0mumh[0m
+                           [33m(3)[0m: [36mesa             [0m - [0mesa[0m
+                           [33m(4)[0m: [36mtesa            [0m - [0mtesa[0m
+  
+  [94mmin-force-key-unit-interval[0m: [0mMinimum interval between force-keyunit requests in nanoseconds[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mUnsigned Integer64[0m. [33mRange[0m: [36m0 - 18446744073709551615[0m [33mDefault[0m: [36m0[0m 
+  
+  [94mmultipass-cache-file[0m: [0mFilename for multipass cache file[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mString[0m. [33mDefault[0m: [36m"x264.log"[0m
+  
+  [94mname                [0m: [0mThe name of the object[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mString[0m. [33mDefault[0m: [36m"x264enc0"[0m
+  
+  [94mnoise-reduction     [0m: [0mNoise reduction strength[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mUnsigned Integer[0m. [33mRange[0m: [36m0 - 100000[0m [33mDefault[0m: [36m0[0m 
+  
+  [94moption-string       [0m: [0mString of x264 options (overridden by element properties) in the format "key1=value1:key2=value2".[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mString[0m. [33mDefault[0m: [36m""[0m
+  
+  [94mparent              [0m: [0mThe parent of the object[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [0mObject of type[0m [32m"GstObject"[0m
+  
+  [94mpass                [0m: [0mEncoding pass/type[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mEnum "GstX264EncPass"[0m [33mDefault[0m: [36m0, "cbr"[0m
+                           [33m(0)[0m: [36mcbr             [0m - [0mConstant Bitrate Encoding[0m
+                           [33m(4)[0m: [36mquant           [0m - [0mConstant Quantizer[0m
+                           [33m(5)[0m: [36mqual            [0m - [0mConstant Quality[0m
+                           [33m(17)[0m: [36mpass1           [0m - [0mVBR Encoding - Pass 1[0m
+                           [33m(18)[0m: [36mpass2           [0m - [0mVBR Encoding - Pass 2[0m
+                           [33m(19)[0m: [36mpass3           [0m - [0mVBR Encoding - Pass 3[0m
+  
+  [94mpb-factor           [0m: [0mQuantizer factor between P- and B-frames[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mFloat[0m. [33mRange[0m: [36m              0 -               2[0m [33mDefault[0m: [36m            1,3[0m 
+  
+  [94mpsy-tune            [0m: [0mPreset name for psychovisual tuning options[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mEnum "GstX264EncPsyTune"[0m [33mDefault[0m: [36m0, "none"[0m
+                           [33m(0)[0m: [36mnone            [0m - [0mNo tuning[0m
+                           [33m(1)[0m: [36mfilm            [0m - [0mFilm[0m
+                           [33m(2)[0m: [36manimation       [0m - [0mAnimation[0m
+                           [33m(3)[0m: [36mgrain           [0m - [0mGrain[0m
+                           [33m(4)[0m: [36mpsnr            [0m - [0mPSNR[0m
+                           [33m(5)[0m: [36mssim            [0m - [0mSSIM[0m
+  
+  [94mqos                 [0m: [0mHandle Quality-of-Service events from downstream[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mBoolean[0m. [33mDefault[0m: [36mfalse[0m
+  
+  [94mqp-max              [0m: [0mMaximum quantizer[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mUnsigned Integer[0m. [33mRange[0m: [36m0 - 63[0m [33mDefault[0m: [36m51[0m 
+  
+  [94mqp-min              [0m: [0mMinimum quantizer[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mUnsigned Integer[0m. [33mRange[0m: [36m0 - 63[0m [33mDefault[0m: [36m10[0m 
+  
+  [94mqp-step             [0m: [0mMaximum quantizer difference between frames[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mUnsigned Integer[0m. [33mRange[0m: [36m0 - 63[0m [33mDefault[0m: [36m4[0m 
+  
+  [94mquantizer           [0m: [0mConstant quantizer or quality to apply[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mUnsigned Integer[0m. [33mRange[0m: [36m0 - 50[0m [33mDefault[0m: [36m21[0m 
+  
+  [94mrc-lookahead        [0m: [0mNumber of frames for frametype lookahead[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mInteger[0m. [33mRange[0m: [36m0 - 250[0m [33mDefault[0m: [36m40[0m 
+  
+  [94mref                 [0m: [0mNumber of reference frames[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mUnsigned Integer[0m. [33mRange[0m: [36m1 - 16[0m [33mDefault[0m: [36m3[0m 
+  
+  [94msliced-threads      [0m: [0mLow latency but lower efficiency threading[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mBoolean[0m. [33mDefault[0m: [36mfalse[0m
+  
+  [94mspeed-preset        [0m: [0mPreset name for speed/quality tradeoff options (can affect decode compatibility - impose restrictions separately for your target decoder)[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mEnum "GstX264EncPreset"[0m [33mDefault[0m: [36m6, "medium"[0m
+                           [33m(0)[0m: [36mNone            [0m - [0mNo preset[0m
+                           [33m(1)[0m: [36multrafast       [0m - [0multrafast[0m
+                           [33m(2)[0m: [36msuperfast       [0m - [0msuperfast[0m
+                           [33m(3)[0m: [36mveryfast        [0m - [0mveryfast[0m
+                           [33m(4)[0m: [36mfaster          [0m - [0mfaster[0m
+                           [33m(5)[0m: [36mfast            [0m - [0mfast[0m
+                           [33m(6)[0m: [36mmedium          [0m - [0mmedium[0m
+                           [33m(7)[0m: [36mslow            [0m - [0mslow[0m
+                           [33m(8)[0m: [36mslower          [0m - [0mslower[0m
+                           [33m(9)[0m: [36mveryslow        [0m - [0mveryslow[0m
+                           [33m(10)[0m: [36mplacebo         [0m - [0mplacebo[0m
+  
+  [94msps-id              [0m: [0mSPS and PPS ID number[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mUnsigned Integer[0m. [33mRange[0m: [36m0 - 31[0m [33mDefault[0m: [36m0[0m 
+  
+  [94msubme               [0m: [0mSubpixel motion estimation and partition decision quality: 1=fast, 10=best[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mUnsigned Integer[0m. [33mRange[0m: [36m1 - 10[0m [33mDefault[0m: [36m1[0m 
+  
+  [94msync-lookahead      [0m: [0mNumber of buffer frames for threaded lookahead (-1 for automatic)[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mInteger[0m. [33mRange[0m: [36m-1 - 250[0m [33mDefault[0m: [36m-1[0m 
+  
+  [94mthreads             [0m: [0mNumber of threads used by the codec (0 for automatic)[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mUnsigned Integer[0m. [33mRange[0m: [36m0 - 2147483647[0m [33mDefault[0m: [36m0[0m 
+  
+  [94mtrellis             [0m: [0mEnable trellis searched quantization[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mBoolean[0m. [33mDefault[0m: [36mtrue[0m
+  
+  [94mtune                [0m: [0mPreset name for non-psychovisual tuning options[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mFlags "GstX264EncTune"[0m [33mDefault[0m: [36m0x00000000, "(none)"[0m
+                           [33m(0x00000001)[0m: [36mstillimage      [0m - [0mStill image[0m
+                           [33m(0x00000002)[0m: [36mfastdecode      [0m - [0mFast decode[0m
+                           [33m(0x00000004)[0m: [36mzerolatency     [0m - [0mZero latency[0m
+  
+  [94mvbv-buf-capacity    [0m: [0mSize of the VBV buffer in milliseconds[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m, [36mBOŞ, HAZIR, DURDURULMUŞ veya YÜRÜTÜLÜYOR durumlarına değiştirilebilir[0m
+                        [32mUnsigned Integer[0m. [33mRange[0m: [36m0 - 10000[0m [33mDefault[0m: [36m600[0m 
+  
+  [94mweightb             [0m: [0mWeighted prediction for B-frames[0m
+                        [33mflags[0m: [36mokunabilir[0m, [36myazılabilir[0m
+                        [32mBoolean[0m. [33mDefault[0m: [36mfalse[0m
+  
+
+[33mPresets[0m:
+  "Profile Baseline": Baseline Profile
+  "Profile High": High Profile
+  "Profile Main": Main Profile
+  "Profile YouTube": YouTube recommended settings (https://support.google.com/youtube/answer/1722171)
+  "Quality High": High quality
+  "Quality Low": Low quality
+  "Quality Normal": Normal quality
+  "Zero Latency"

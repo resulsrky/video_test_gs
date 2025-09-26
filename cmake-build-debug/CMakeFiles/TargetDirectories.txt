@@ -1,0 +1,3 @@
+/home/resul/CLionProjects/video_engine/cmake-build-debug/CMakeFiles/video_engine.dir
+/home/resul/CLionProjects/video_engine/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/resul/CLionProjects/video_engine/cmake-build-debug/CMakeFiles/rebuild_cache.dir
