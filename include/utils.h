@@ -3,7 +3,6 @@
 
 #include <optional>
 #include <string>
-#include <vector>
 
 namespace ve {
 
@@ -26,17 +25,20 @@ struct VideoProfile {
   int bitrate_kbps = 4000;  // encoder target
 };
 
-  struct EngineConfig {
-    std::string dest_ip;
-    PortsConfig ports;
-    VideoProfile profile;
-    std::string source = "ximagesrc"; // or v4l2src
-    int fec_percentage = 20; // redundancy, aims to tolerate ~5% loss
-    std::string mode = "rtpbin"; // rtpbin | simple
-  };
+struct EngineConfig {
+  std::string dest_ip;
+  PortsConfig ports;
+  VideoProfile profile;
+  std::string source = "ximagesrc";  // or v4l2src/videotestsrc
+  int fec_percentage = 20;            // redundancy, aims to tolerate ~5% loss
+  std::string mode = "rtpbin";       // rtpbin | simple
+  int latency_ms = 50;                // target sender latency hint
+};
 
 // Parse CLI of form:
-//   video_engine <ip> <p1> <p2> <p3> <p4> [--source=ximagesrc|v4l2src|videotestsrc] [--width=] [--height=] [--fps=] [--bitrate=] [--fec=] [--mode=rtpbin|simple]
+//   video_engine <ip> <p1> <p2> <p3> <p4> [--source=] [--width=] [--height=]
+//                                     [--fps=] [--bitrate=] [--fec=] [--mode=]
+//                                     [--latency=]
 // Returns std::nullopt and prints help on failure.
 std::optional<EngineConfig> parse_args(int argc, char** argv);
 

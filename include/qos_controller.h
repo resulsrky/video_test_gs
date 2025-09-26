@@ -34,6 +34,10 @@ class QosController {
   std::atomic<bool> running_{false};
   int interval_ms_ = 1000;
   std::thread worker_;
+
+  unsigned int base_bitrate_ = 0;
+  unsigned int min_bitrate_ = 500;
+  unsigned int max_bitrate_ = 8000;
 };
 
 }  // namespace ve

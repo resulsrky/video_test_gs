@@ -69,7 +69,8 @@ static void print_usage(const char* prog) {
             << "Options:\n"
             << "  --source=ximagesrc|v4l2src\n"
             << "  --width=<int>  --height=<int>  --fps=<int>\n"
-            << "  --bitrate=<kbps>  --fec=<percentage 0-100>\n";
+            << "  --bitrate=<kbps>  --fec=<percentage 0-100>\n"
+            << "  --latency=<ms sender jitter buffer target>\n";
 }
 
 std::optional<EngineConfig> parse_args(int argc, char** argv) {
@@ -111,6 +112,7 @@ std::optional<EngineConfig> parse_args(int argc, char** argv) {
     else if (auto v = eat("--fps")) cfg.profile.fps = std::stoi(*v);
     else if (auto v = eat("--bitrate")) cfg.profile.bitrate_kbps = std::stoi(*v);
     else if (auto v = eat("--fec")) cfg.fec_percentage = std::clamp(std::stoi(*v), 0, 100);
+    else if (auto v = eat("--latency")) cfg.latency_ms = std::clamp(std::stoi(*v), 10, 200);
     else if (auto v = eat("--mode")) cfg.mode = *v;
     else {
       LOG_WARN("Unknown arg: ", a);
@@ -126,6 +128,8 @@ std::optional<EngineConfig> parse_args(int argc, char** argv) {
     LOG_WARN("Unsupported mode '", cfg.mode, "', defaulting to rtpbin");
     cfg.mode = "rtpbin";
   }
+
+  cfg.latency_ms = std::clamp(cfg.latency_ms, 10, 200);
 
   return cfg;
 }
